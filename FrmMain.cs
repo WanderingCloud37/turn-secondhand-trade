@@ -17,7 +17,10 @@
         private void OpenChildForm(Form childForm)
         {
             if (currentForm != null)
-                currentForm.Close();
+            {
+                pnl_Content.Controls.Remove(currentForm);
+                currentForm.Dispose();
+            }
 
             currentForm = childForm;
             childForm.TopLevel = false;
@@ -29,17 +32,17 @@
 
         private void BtnGoodsListClick(object sender, EventArgs e)
         {
-            ShowTip("功能开发中");
+            OpenChildForm(new FrmGoodslist());
         }
 
         private void BtnPublishClick(object sender, EventArgs e)
         {
-            ShowTip("功能开发中");
+            OpenChildForm(new FrmPublishGoods());
         }
 
         private void BtnMyOrderClick(object sender, EventArgs e)
         {
-            ShowTip("功能开发中");
+            OpenChildForm(new FrmMyOrder());
         }
 
         private void BtnLogoutClick(object sender, EventArgs e)
@@ -47,6 +50,11 @@
             Program.CurrentUserId = 0;
             Program.CurrentUserName = "";
             this.Close();
+        }
+
+        private void pnl_Content_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

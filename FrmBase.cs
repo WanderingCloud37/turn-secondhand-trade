@@ -28,11 +28,29 @@ namespace 转一转校园二手物品交易系统
             return MessageBox.Show(msg, "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
 
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // FrmBase
+            // 
+            ClientSize = new Size(591, 481);
+            Name = "FrmBase";
+            Load += FrmBase_Load;
+            ResumeLayout(false);
+
+        }
+
         protected void LoadComboBox(ComboBox cbo, DataTable dt, string displayMember, string valueMember)
         {
             cbo.DisplayMember = displayMember;
             cbo.ValueMember = valueMember;
             cbo.DataSource = dt;
+        }
+
+        private void FrmBase_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

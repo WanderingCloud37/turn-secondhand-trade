@@ -43,7 +43,7 @@
             // 
             lbl_Pwd.Anchor = AnchorStyles.None;
             lbl_Pwd.AutoSize = true;
-            lbl_Pwd.Location = new Point(465, 405);
+            lbl_Pwd.Location = new Point(465, 404);
             lbl_Pwd.Margin = new Padding(5, 0, 5, 0);
             lbl_Pwd.Name = "lbl_Pwd";
             lbl_Pwd.Size = new Size(64, 24);
@@ -56,7 +56,7 @@
             lbl_UserName.Anchor = AnchorStyles.None;
             lbl_UserName.AutoSize = true;
             lbl_UserName.BackColor = SystemColors.ControlLightLight;
-            lbl_UserName.Location = new Point(437, 356);
+            lbl_UserName.Location = new Point(447, 355);
             lbl_UserName.Margin = new Padding(5, 0, 5, 0);
             lbl_UserName.Name = "lbl_UserName";
             lbl_UserName.Size = new Size(82, 24);
@@ -86,7 +86,8 @@
             // btn_Login
             // 
             btn_Login.Anchor = AnchorStyles.None;
-            btn_Login.BackColor = SystemColors.ActiveCaption;
+            btn_Login.BackColor = SystemColors.Highlight;
+            btn_Login.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             btn_Login.Location = new Point(465, 483);
             btn_Login.Margin = new Padding(5, 4, 5, 4);
             btn_Login.Name = "btn_Login";
@@ -99,7 +100,8 @@
             // btn_Register
             // 
             btn_Register.Anchor = AnchorStyles.None;
-            btn_Register.BackColor = SystemColors.ActiveCaption;
+            btn_Register.BackColor = SystemColors.Highlight;
+            btn_Register.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 134);
             btn_Register.Location = new Point(647, 483);
             btn_Register.Margin = new Padding(5, 4, 5, 4);
             btn_Register.Name = "btn_Register";

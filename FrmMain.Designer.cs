@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             pnl_Menu = new Panel();
             btn_Logout = new Button();
             btn_MyOrder = new Button();
@@ -29,6 +30,8 @@
             // 
             // pnl_Menu
             // 
+            pnl_Menu.BackgroundImage = (Image)resources.GetObject("pnl_Menu.BackgroundImage");
+            pnl_Menu.BackgroundImageLayout = ImageLayout.Stretch;
             pnl_Menu.Controls.Add(btn_Logout);
             pnl_Menu.Controls.Add(btn_MyOrder);
             pnl_Menu.Controls.Add(btn_Publish);
@@ -36,27 +39,31 @@
             pnl_Menu.Controls.Add(lbl_Welcome);
             pnl_Menu.Dock = DockStyle.Left;
             pnl_Menu.Location = new Point(0, 0);
+            pnl_Menu.Margin = new Padding(5, 4, 5, 4);
             pnl_Menu.Name = "pnl_Menu";
-            pnl_Menu.Size = new Size(150, 450);
+            pnl_Menu.Size = new Size(335, 736);
             pnl_Menu.TabIndex = 0;
             // 
             // btn_Logout
             // 
+            btn_Logout.BackColor = Color.FromArgb(255, 128, 128);
             btn_Logout.Dock = DockStyle.Bottom;
-            btn_Logout.Location = new Point(0, 420);
+            btn_Logout.Location = new Point(0, 694);
+            btn_Logout.Margin = new Padding(5, 4, 5, 4);
             btn_Logout.Name = "btn_Logout";
-            btn_Logout.Size = new Size(150, 30);
+            btn_Logout.Size = new Size(335, 42);
             btn_Logout.TabIndex = 4;
             btn_Logout.Text = "退出登录";
-            btn_Logout.UseVisualStyleBackColor = true;
+            btn_Logout.UseVisualStyleBackColor = false;
             btn_Logout.Click += BtnLogoutClick;
             // 
             // btn_MyOrder
             // 
             btn_MyOrder.Dock = DockStyle.Top;
-            btn_MyOrder.Location = new Point(0, 100);
+            btn_MyOrder.Location = new Point(0, 140);
+            btn_MyOrder.Margin = new Padding(5, 4, 5, 4);
             btn_MyOrder.Name = "btn_MyOrder";
-            btn_MyOrder.Size = new Size(150, 30);
+            btn_MyOrder.Size = new Size(335, 42);
             btn_MyOrder.TabIndex = 3;
             btn_MyOrder.Text = "我的订单";
             btn_MyOrder.UseVisualStyleBackColor = true;
@@ -65,9 +72,10 @@
             // btn_Publish
             // 
             btn_Publish.Dock = DockStyle.Top;
-            btn_Publish.Location = new Point(0, 70);
+            btn_Publish.Location = new Point(0, 98);
+            btn_Publish.Margin = new Padding(5, 4, 5, 4);
             btn_Publish.Name = "btn_Publish";
-            btn_Publish.Size = new Size(150, 30);
+            btn_Publish.Size = new Size(335, 42);
             btn_Publish.TabIndex = 2;
             btn_Publish.Text = "发布商品";
             btn_Publish.UseVisualStyleBackColor = true;
@@ -76,9 +84,10 @@
             // btn_GoodsList
             // 
             btn_GoodsList.Dock = DockStyle.Top;
-            btn_GoodsList.Location = new Point(0, 40);
+            btn_GoodsList.Location = new Point(0, 56);
+            btn_GoodsList.Margin = new Padding(5, 4, 5, 4);
             btn_GoodsList.Name = "btn_GoodsList";
-            btn_GoodsList.Size = new Size(150, 30);
+            btn_GoodsList.Size = new Size(335, 42);
             btn_GoodsList.TabIndex = 1;
             btn_GoodsList.Text = "浏览商品";
             btn_GoodsList.UseVisualStyleBackColor = true;
@@ -89,27 +98,33 @@
             lbl_Welcome.Dock = DockStyle.Top;
             lbl_Welcome.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold);
             lbl_Welcome.Location = new Point(0, 0);
+            lbl_Welcome.Margin = new Padding(5, 0, 5, 0);
             lbl_Welcome.Name = "lbl_Welcome";
-            lbl_Welcome.Size = new Size(150, 40);
+            lbl_Welcome.Size = new Size(335, 56);
             lbl_Welcome.TabIndex = 0;
             lbl_Welcome.Text = "欢迎使用";
             lbl_Welcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pnl_Content
             // 
+            pnl_Content.BackgroundImage = Properties.Resources.ChatGPT_Image_2026年6月12日_12_24_25;
+            pnl_Content.BackgroundImageLayout = ImageLayout.Stretch;
             pnl_Content.Dock = DockStyle.Fill;
-            pnl_Content.Location = new Point(150, 0);
+            pnl_Content.Location = new Point(335, 0);
+            pnl_Content.Margin = new Padding(5, 4, 5, 4);
             pnl_Content.Name = "pnl_Content";
-            pnl_Content.Size = new Size(650, 450);
+            pnl_Content.Size = new Size(949, 736);
             pnl_Content.TabIndex = 1;
+            pnl_Content.Paint += pnl_Content_Paint;
             // 
             // FrmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1284, 736);
             Controls.Add(pnl_Content);
             Controls.Add(pnl_Menu);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "FrmMain";
             Text = "二手交易系统";
             Load += FrmMainLoad;

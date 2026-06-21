@@ -39,7 +39,7 @@ namespace 转一转校园二手物品交易系统
             string sql = "INSERT INTO users (username, password, phone) VALUES (@u, @p, @ph)";
             SqlParameter[] ps = {
                 new SqlParameter("@u", txt_UserName.Text.Trim()),
-                new SqlParameter("@p", txt_Pwd.Text),
+                new SqlParameter("@p", BCrypt.Net.BCrypt.HashPassword(txt_Pwd.Text)),
                 new SqlParameter("@ph", string.IsNullOrEmpty(txt_Phone.Text) ? (object)DBNull.Value : txt_Phone.Text)
             };
             SQLHelper.Exec(sql, ps);
