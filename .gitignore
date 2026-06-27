@@ -11,6 +11,7 @@ obj/
 *.csproj.user.*
 *.resx.user
 
+
 ## NuGet
 packages/
 *.nupkg

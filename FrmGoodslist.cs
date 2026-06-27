@@ -25,6 +25,7 @@ namespace 转一转校园二手物品交易系统
 
         private void FrmGoodslist_Load(object sender, EventArgs e)
         {
+            dgv_Goods.Columns["image_url"].DataPropertyName = "img";
             BeginInvoke(() => LoadData());
         }
 
@@ -45,7 +46,8 @@ namespace 转一转校园二手物品交易系统
             if (_pageIndex > _totalPages) _pageIndex = _totalPages;
 
             string sql = @"
-    SELECT g.goods_id, g.image_url,
+    SELECT g.goods_id,
+           (SELECT TOP 1 gi.image_url FROM goods_images gi WHERE gi.goods_id = g.goods_id ORDER BY gi.sort_order) AS image_url,
            g.title AS 商品名, g.price AS 价格,
            c.category_name AS 分类, u.username AS 卖家, g.status AS 状态
     FROM goods g
@@ -68,6 +70,21 @@ namespace 转一转校园二手物品交易系统
                 _pageIndex--;
                 LoadData();
                 return;
+            }
+
+            dt.Columns.Add("img", typeof(Image));
+            string defaultImg = Path.Combine(Application.StartupPath, "Sys_images", "Goods_img_default.png");
+            foreach (DataRow row in dt.Rows)
+            {
+                string? path = row["image_url"]?.ToString();
+                if (!string.IsNullOrEmpty(path))
+                {
+                    string fullPath = Path.Combine(Application.StartupPath, path);
+                    if (File.Exists(fullPath))
+                        row["img"] = Image.FromFile(fullPath);
+                }
+                if (row["img"] == DBNull.Value && File.Exists(defaultImg))
+                    row["img"] = Image.FromFile(defaultImg);
             }
 
             dgv_Goods.DataSource = dt;

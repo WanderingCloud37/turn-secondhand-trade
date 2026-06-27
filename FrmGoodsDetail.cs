@@ -17,7 +17,8 @@ namespace 转一转校园二手物品交易系统
         private void FrmGoodsDetail_Load(object sender, EventArgs e)
         {
             string sql = @"
-                SELECT g.*, c.category_name, u.username AS seller_name
+                SELECT g.*, c.category_name, u.username AS seller_name,
+                       (SELECT TOP 1 gi.image_url FROM goods_images gi WHERE gi.goods_id = g.goods_id ORDER BY gi.sort_order) AS image_url
                 FROM goods g
                 JOIN categories c ON g.category_id = c.category_id
                 JOIN users u ON g.seller_id = u.user_id
@@ -42,13 +43,18 @@ namespace 转一转校园二手物品交易系统
             lbl_Time.Text = "发布时间：" + Convert.ToDateTime(row["created_time"]).ToString("yyyy-MM-dd");
             rtb_Desc.Text = row["description"]?.ToString() ?? "";
 
-            byte[]? imgData = row["image_url"] as byte[];
-            if (imgData != null && imgData.Length > 0)
+            string? imgPath = row["image_url"]?.ToString();
+            if (!string.IsNullOrEmpty(imgPath))
             {
-                using (MemoryStream ms = new MemoryStream(imgData))
-                {
-                    pic_Goods.Image = Image.FromStream(ms);
-                }
+                string fullPath = Path.Combine(Application.StartupPath, imgPath);
+                if (File.Exists(fullPath))
+                    pic_Goods.Image = Image.FromFile(fullPath);
+            }
+            if (pic_Goods.Image == null)
+            {
+                string defaultPath = Path.Combine(Application.StartupPath, "Sys_images", "Goods_img_default.png");
+                if (File.Exists(defaultPath))
+                    pic_Goods.Image = Image.FromFile(defaultPath);
             }
 
             if (_sellerId == Program.CurrentUserId)
