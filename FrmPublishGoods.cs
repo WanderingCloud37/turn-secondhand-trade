@@ -6,7 +6,7 @@ namespace 转一转校园二手物品交易系统
 {
     public partial class FrmPublishGoods : FrmBase
     {
-        private byte[]? _selectedImage;
+        private string? _selectedImagePath;
 
         public FrmPublishGoods()
         {
@@ -37,9 +37,8 @@ namespace 转一转校园二手物品交易系统
                         return;
                     }
 
-                    _selectedImage = File.ReadAllBytes(dlg.FileName);
-                    using (MemoryStream ms = new MemoryStream(_selectedImage))
-                        pic_Goods.Image = Image.FromStream(ms);
+                    _selectedImagePath = dlg.FileName;
+                    pic_Goods.Image = Image.FromFile(dlg.FileName);
                 }
             }
         }
@@ -55,8 +54,9 @@ namespace 转一转校园二手物品交易系统
             }
 
             string sql = @"INSERT INTO goods 
-    (title, price, category_id, seller_id, description, image_url)
-    VALUES (@t, @p, @c, @s, @d, @img)";
+    (title, price, category_id, seller_id, description, status)
+    VALUES (@t, @p, @c, @s, @d, '在售');
+    SELECT SCOPE_IDENTITY();";
 
             SqlParameter[] ps = {
                 new SqlParameter("@t", txt_GoodsTitle.Text),
@@ -64,11 +64,22 @@ namespace 转一转校园二手物品交易系统
                 new SqlParameter("@c", cbo_Category.SelectedValue),
                 new SqlParameter("@s", Program.CurrentUserId),
                 new SqlParameter("@d", rtb_Desc.Text),
-                new SqlParameter("@img", SqlDbType.VarBinary, -1)
-                    { Value = (object?)_selectedImage ?? DBNull.Value }
             };
 
-            SQLHelper.Exec(sql, ps);
+            int newId = Convert.ToInt32(SQLHelper.Scalar(sql, ps));
+
+            if (_selectedImagePath != null)
+            {
+                string dir = "UploadImages";
+                Directory.CreateDirectory(dir);
+                string fileName = $"goods_{newId}_{Guid.NewGuid():N}{Path.GetExtension(_selectedImagePath)}";
+                File.Copy(_selectedImagePath, Path.Combine(dir, fileName));
+
+                SQLHelper.Exec(
+                    "INSERT INTO goods_images (goods_id, image_url) VALUES (@g, @u)",
+                    new[] { new SqlParameter("@g", newId), new SqlParameter("@u", Path.Combine(dir, fileName)) });
+            }
+
             ShowTip("发布成功");
             this.Close();
         }

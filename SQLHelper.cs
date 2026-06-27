@@ -69,11 +69,15 @@ namespace 转一转校园二手物品交易系统
                         if (status != "在售")
                             return (false, "商品已被其他人先下单了");
 
-                        cmd.CommandText = "INSERT INTO orders (goods_id, buyer_id, seller_id) VALUES (@goodsId, @buyerId, @sellerId)";
+                        cmd.CommandText = "SELECT price FROM goods WHERE goods_id=@goodsId";
+                        decimal price = (decimal)cmd.ExecuteScalar();
+
+                        cmd.CommandText = "INSERT INTO orders (goods_id, buyer_id, seller_id, order_status, shipping_address, deal_price) VALUES (@goodsId, @buyerId, @sellerId, '待付款',  '', @dealPrice)";
                         cmd.Parameters.Clear();
                         cmd.Parameters.AddWithValue("@goodsId", goodsId);
                         cmd.Parameters.AddWithValue("@buyerId", buyerId);
                         cmd.Parameters.AddWithValue("@sellerId", sellerId);
+                        cmd.Parameters.AddWithValue("@dealPrice", price);
                         cmd.ExecuteNonQuery();
 
                         cmd.CommandText = "UPDATE goods SET status='已售' WHERE goods_id=@goodsId";
