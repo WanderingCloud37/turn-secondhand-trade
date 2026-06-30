@@ -210,5 +210,10 @@ namespace 转一转校园二手物品交易系统
         {
             btn_ViewDetail_Click(sender, e);
         }
+
+        private void dgv_Goods_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -18,8 +18,9 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lbl_Search = new Label();
             txt_Search = new TextBox();
             lbl_Category = new Label();
@@ -27,8 +28,8 @@
             btn_Search = new Button();
             btn_Refresh = new Button();
             dgv_Goods = new DataGridView();
-            col_image = new DataGridViewImageColumn();
             goods_id = new DataGridViewTextBoxColumn();
+            col_image = new DataGridViewImageColumn();
             商品名 = new DataGridViewTextBoxColumn();
             价格 = new DataGridViewTextBoxColumn();
             分类 = new DataGridViewTextBoxColumn();
@@ -107,7 +108,6 @@
             // dgv_Goods
             // 
             dgv_Goods.AllowUserToAddRows = false;
-            dgv_Goods.AutoGenerateColumns = false;
             dgv_Goods.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Goods.BackgroundColor = SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -120,54 +120,55 @@
             dgv_Goods.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Goods.ColumnHeadersHeight = 30;
             dgv_Goods.Columns.AddRange(new DataGridViewColumn[] { goods_id, col_image, 商品名, 价格, 分类, 卖家, 状态 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft YaHei UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgv_Goods.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Microsoft YaHei UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgv_Goods.DefaultCellStyle = dataGridViewCellStyle3;
             dgv_Goods.Dock = DockStyle.Fill;
-            dgv_Goods.Location = new Point(0, 0);
+            dgv_Goods.Location = new Point(0, 105);
             dgv_Goods.Margin = new Padding(5, 4, 5, 4);
             dgv_Goods.Name = "dgv_Goods";
             dgv_Goods.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Microsoft YaHei UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgv_Goods.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Microsoft YaHei UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Goods.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv_Goods.RowHeadersVisible = false;
             dgv_Goods.RowHeadersWidth = 62;
             dgv_Goods.RowTemplate.Height = 60;
             dgv_Goods.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Goods.Size = new Size(960, 720);
+            dgv_Goods.Size = new Size(960, 615);
             dgv_Goods.TabIndex = 4;
+            dgv_Goods.CellContentClick += dgv_Goods_CellContentClick;
             dgv_Goods.CellDoubleClick += dgv_Goods_CellDoubleClick;
             // 
-            // image_url
+            // goods_id
             // 
-            col_image.DataPropertyName = "";
+            goods_id.DataPropertyName = "goods_id";
+            dataGridViewCellStyle2.Format = "0000";
+            goods_id.DefaultCellStyle = dataGridViewCellStyle2;
+            goods_id.FillWeight = 80F;
+            goods_id.HeaderText = "商品 ID";
+            goods_id.MinimumWidth = 8;
+            goods_id.Name = "goods_id";
+            goods_id.ReadOnly = true;
+            // 
+            // col_image
+            // 
             col_image.FillWeight = 200F;
             col_image.HeaderText = "图片";
             col_image.ImageLayout = DataGridViewImageCellLayout.Zoom;
             col_image.MinimumWidth = 8;
             col_image.Name = "col_image";
             col_image.ReadOnly = true;
-            // 
-            // goods_id
-            // 
-            goods_id.DataPropertyName = "goods_id";
-            goods_id.FillWeight = 80F;
-            goods_id.HeaderText = "商品 ID";
-            goods_id.DefaultCellStyle.Format = "0000";
-            goods_id.MinimumWidth = 8;
-            goods_id.Name = "goods_id";
-            goods_id.ReadOnly = true;
             // 
             // 商品名
             // 
