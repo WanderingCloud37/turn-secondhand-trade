@@ -103,6 +103,8 @@ namespace 转一转校园二手物品交易系统
             }
 
             dgv_Goods.DataSource = dt;
+            if (dgv_Goods.Columns.Contains("image_url"))
+                dgv_Goods.Columns["image_url"].Visible = false;
             UpdatePageInfo();
         }
 
@@ -212,6 +214,11 @@ namespace 转一转校园二手物品交易系统
         }
 
         private void dgv_Goods_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lbl_PageInfo_Click(object sender, EventArgs e)
         {
 
         }

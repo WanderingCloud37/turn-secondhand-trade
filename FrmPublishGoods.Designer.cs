@@ -51,7 +51,7 @@ namespace 转一转校园二手物品交易系统
             txt_GoodsTitle.Location = new Point(189, 82);
             txt_GoodsTitle.MaxLength = 100;
             txt_GoodsTitle.Name = "txt_GoodsTitle";
-            txt_GoodsTitle.Size = new Size(314, 32);
+            txt_GoodsTitle.Size = new Size(314, 30);
             txt_GoodsTitle.TabIndex = 2;
             // 
             // lbl_Price
@@ -68,7 +68,7 @@ namespace 转一转校园二手物品交易系统
             nud_Price.Location = new Point(189, 138);
             nud_Price.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             nud_Price.Name = "nud_Price";
-            nud_Price.Size = new Size(189, 32);
+            nud_Price.Size = new Size(189, 30);
             nud_Price.TabIndex = 4;
             // 
             // lbl_Category
@@ -84,7 +84,7 @@ namespace 转一转校园二手物品交易系统
             cbo_Category.DropDownStyle = ComboBoxStyle.DropDownList;
             cbo_Category.Location = new Point(189, 195);
             cbo_Category.Name = "cbo_Category";
-            cbo_Category.Size = new Size(236, 35);
+            cbo_Category.Size = new Size(236, 32);
             cbo_Category.TabIndex = 6;
             // 
             // lbl_Desc
@@ -139,9 +139,8 @@ namespace 转一转校园二手物品交易系统
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = DesignTimeSafe.LoadImage("Sys_images", "Backgrounds", "background_form.png");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(960, 720);
+            ClientSize = new Size(843, 744);
             Controls.Add(lbl_Title);
             Controls.Add(lbl_GoodsTitle);
             Controls.Add(txt_GoodsTitle);

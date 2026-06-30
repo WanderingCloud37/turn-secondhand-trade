@@ -364,5 +364,10 @@ VALUES(@content, @uid, GETDATE())";
         {
 
         }
+
+        private void txt_Announcement_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

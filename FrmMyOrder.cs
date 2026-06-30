@@ -172,6 +172,8 @@ namespace 转一转校园二手物品交易系统
         {
             string field = rdo_Buyer.Checked ? "o.buyer_id" : "o.seller_id";
             lbl_Tip.Text = rdo_Buyer.Checked ? "当前显示：我买的订单" : "当前显示：我卖的订单";
+            ColBuyer.HeaderText = rdo_Buyer.Checked ? "卖家" : "买家";
+            ColBuyer.DataPropertyName = rdo_Buyer.Checked ? "seller_name" : "buyer_name";
 
             string sql = @"
     SELECT o.order_id, o.order_status, o.order_time,
@@ -185,7 +187,13 @@ namespace 转一转校园二手物品交易系统
     WHERE " + field + @" = @uid
     ORDER BY o.order_time DESC";
             SqlParameter[] ps = { new SqlParameter("@uid", Program.CurrentUserId) };
+            dgv_Order.AutoGenerateColumns = false;
             dgv_Order.DataSource = SQLHelper.Query(sql, ps);
+        }
+
+        private void lbl_Tip_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

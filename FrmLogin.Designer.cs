@@ -31,23 +31,27 @@
             // 
             lbl_Title.Anchor = AnchorStyles.None;
             lbl_Title.AutoSize = true;
-            lbl_Title.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 134);
-            lbl_Title.Location = new Point(486, 145);
+            lbl_Title.BackColor = SystemColors.ControlLightLight;
+            lbl_Title.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            lbl_Title.Location = new Point(486, 143);
             lbl_Title.Margin = new Padding(5, 0, 5, 0);
             lbl_Title.Name = "lbl_Title";
-            lbl_Title.Size = new Size(206, 31);
+            lbl_Title.Size = new Size(257, 40);
             lbl_Title.TabIndex = 0;
             lbl_Title.Text = "二手物品交易系统";
             lbl_Title.TextAlign = ContentAlignment.MiddleCenter;
+            lbl_Title.Click += lbl_Title_Click_1;
             // 
             // lbl_Pwd
             // 
             lbl_Pwd.Anchor = AnchorStyles.None;
             lbl_Pwd.AutoSize = true;
+            lbl_Pwd.BackColor = SystemColors.ButtonHighlight;
+            lbl_Pwd.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
             lbl_Pwd.Location = new Point(404, 459);
             lbl_Pwd.Margin = new Padding(5, 0, 5, 0);
             lbl_Pwd.Name = "lbl_Pwd";
-            lbl_Pwd.Size = new Size(64, 24);
+            lbl_Pwd.Size = new Size(75, 28);
             lbl_Pwd.TabIndex = 1;
             lbl_Pwd.Text = "密码：";
             lbl_Pwd.TextAlign = ContentAlignment.MiddleCenter;
@@ -57,10 +61,11 @@
             lbl_UserName.Anchor = AnchorStyles.None;
             lbl_UserName.AutoSize = true;
             lbl_UserName.BackColor = SystemColors.ControlLightLight;
-            lbl_UserName.Location = new Point(386, 410);
+            lbl_UserName.Font = new Font("Microsoft YaHei UI", 10.5F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            lbl_UserName.Location = new Point(383, 409);
             lbl_UserName.Margin = new Padding(5, 0, 5, 0);
             lbl_UserName.Name = "lbl_UserName";
-            lbl_UserName.Size = new Size(82, 24);
+            lbl_UserName.Size = new Size(96, 28);
             lbl_UserName.TabIndex = 2;
             lbl_UserName.Text = "用户名：";
             lbl_UserName.TextAlign = ContentAlignment.MiddleCenter;
@@ -68,16 +73,17 @@
             // txt_UserName
             // 
             txt_UserName.Anchor = AnchorStyles.None;
-            txt_UserName.Location = new Point(480, 407);
+            txt_UserName.Location = new Point(489, 407);
             txt_UserName.Margin = new Padding(5, 4, 5, 4);
             txt_UserName.Name = "txt_UserName";
             txt_UserName.Size = new Size(312, 30);
             txt_UserName.TabIndex = 3;
+            txt_UserName.TextChanged += txt_UserName_TextChanged;
             // 
             // txt_Pwd
             // 
             txt_Pwd.Anchor = AnchorStyles.None;
-            txt_Pwd.Location = new Point(480, 456);
+            txt_Pwd.Location = new Point(489, 459);
             txt_Pwd.Margin = new Padding(5, 4, 5, 4);
             txt_Pwd.Name = "txt_Pwd";
             txt_Pwd.PasswordChar = '*';

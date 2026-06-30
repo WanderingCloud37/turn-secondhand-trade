@@ -118,9 +118,8 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = DesignTimeSafe.LoadImage("Sys_images", "Backgrounds", "background_form.png");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(960, 720);
+            ClientSize = new Size(843, 744);
             Controls.Add(btn_Order);
             Controls.Add(rtb_Desc);
             Controls.Add(pic_Goods);
