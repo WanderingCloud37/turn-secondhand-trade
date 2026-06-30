@@ -147,6 +147,7 @@
             dgv_Goods.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Goods.Size = new Size(960, 615);
             dgv_Goods.TabIndex = 4;
+            dgv_Goods.CellContentClick += dgv_Goods_CellContentClick;
             dgv_Goods.CellDoubleClick += dgv_Goods_CellDoubleClick;
             // 
             // goods_id

@@ -114,7 +114,7 @@ namespace 转一转校园二手物品交易系统
             if (rdo_Seller.Checked)
             {
                 // 卖家视图：显示两个按钮
-                btn_Confirm.Text = "确认付款";
+                btn_Confirm.Text = "确认收款";
                 btn_Confirm.Visible = true;
                 btn_ModifyPrice.Visible = true;
             }
