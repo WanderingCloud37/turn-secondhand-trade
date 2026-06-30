@@ -1,16 +1,9 @@
-﻿namespace 转一转校园二手物品交易系统
+namespace 转一转校园二手物品交易系统
 {
     partial class FrmMyOrder
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,20 +15,18 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             dgv_Order = new DataGridView();
             ColId = new DataGridViewTextBoxColumn();
             ColGoods = new DataGridViewTextBoxColumn();
             ColPrice = new DataGridViewTextBoxColumn();
+            ColDealPrice = new DataGridViewTextBoxColumn();
             ColTime = new DataGridViewTextBoxColumn();
             ColStatus = new DataGridViewTextBoxColumn();
             ColBuyer = new DataGridViewTextBoxColumn();
             btn_Confirm = new Button();
+            btn_ModifyPrice = new Button();
             rdo_Seller = new RadioButton();
             rdo_Buyer = new RadioButton();
             lbl_Tip = new Label();
@@ -47,7 +38,7 @@
             dgv_Order.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Order.BackgroundColor = SystemColors.Info;
             dgv_Order.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Order.Columns.AddRange(new DataGridViewColumn[] { ColId, ColGoods, ColPrice, ColTime, ColStatus, ColBuyer });
+            dgv_Order.Columns.AddRange(new DataGridViewColumn[] { ColId, ColGoods, ColPrice, ColDealPrice, ColTime, ColStatus, ColBuyer });
             dgv_Order.GridColor = SystemColors.Highlight;
             dgv_Order.Location = new Point(29, 121);
             dgv_Order.Margin = new Padding(5, 4, 5, 4);
@@ -55,7 +46,7 @@
             dgv_Order.ReadOnly = true;
             dgv_Order.RowHeadersWidth = 62;
             dgv_Order.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Order.Size = new Size(893, 432);
+            dgv_Order.Size = new Size(893, 420);
             dgv_Order.TabIndex = 7;
             // 
             // ColId
@@ -77,10 +68,18 @@
             // ColPrice
             // 
             ColPrice.DataPropertyName = "goods_price";
-            ColPrice.HeaderText = "金额";
+            ColPrice.HeaderText = "标价";
             ColPrice.MinimumWidth = 8;
             ColPrice.Name = "ColPrice";
             ColPrice.ReadOnly = true;
+            // 
+            // ColDealPrice
+            // 
+            ColDealPrice.DataPropertyName = "deal_price";
+            ColDealPrice.HeaderText = "成交价";
+            ColDealPrice.MinimumWidth = 8;
+            ColDealPrice.Name = "ColDealPrice";
+            ColDealPrice.ReadOnly = true;
             // 
             // ColTime
             // 
@@ -109,7 +108,7 @@
             // btn_Confirm
             // 
             btn_Confirm.BackColor = SystemColors.ActiveCaption;
-            btn_Confirm.Location = new Point(405, 562);
+            btn_Confirm.Location = new Point(352, 560);
             btn_Confirm.Margin = new Padding(5, 4, 5, 4);
             btn_Confirm.Name = "btn_Confirm";
             btn_Confirm.Size = new Size(118, 32);
@@ -117,6 +116,18 @@
             btn_Confirm.Text = "确认收货";
             btn_Confirm.UseVisualStyleBackColor = false;
             btn_Confirm.Click += btn_Confirm_Click;
+            // 
+            // btn_ModifyPrice
+            // 
+            btn_ModifyPrice.BackColor = SystemColors.ActiveCaption;
+            btn_ModifyPrice.Location = new Point(490, 560);
+            btn_ModifyPrice.Margin = new Padding(5, 4, 5, 4);
+            btn_ModifyPrice.Name = "btn_ModifyPrice";
+            btn_ModifyPrice.Size = new Size(118, 32);
+            btn_ModifyPrice.TabIndex = 9;
+            btn_ModifyPrice.Text = "修改价格";
+            btn_ModifyPrice.UseVisualStyleBackColor = false;
+            btn_ModifyPrice.Click += btn_ModifyPrice_Click;
             // 
             // rdo_Seller
             // 
@@ -148,7 +159,7 @@
             // 
             lbl_Tip.AutoSize = true;
             lbl_Tip.ForeColor = SystemColors.GrayText;
-            lbl_Tip.Location = new Point(438, 598);
+            lbl_Tip.Location = new Point(418, 598);
             lbl_Tip.Margin = new Padding(5, 0, 5, 0);
             lbl_Tip.Name = "lbl_Tip";
             lbl_Tip.Size = new Size(63, 24);
@@ -166,6 +177,7 @@
             Controls.Add(lbl_Tip);
             Controls.Add(dgv_Order);
             Controls.Add(btn_Confirm);
+            Controls.Add(btn_ModifyPrice);
             Controls.Add(rdo_Seller);
             Controls.Add(rdo_Buyer);
             Margin = new Padding(5, 4, 5, 4);
@@ -181,12 +193,14 @@
 
         private DataGridView dgv_Order;
         private Button btn_Confirm;
+        private Button btn_ModifyPrice;
         private RadioButton rdo_Seller;
         private RadioButton rdo_Buyer;
         private Label lbl_Tip;
         private DataGridViewTextBoxColumn ColId;
         private DataGridViewTextBoxColumn ColGoods;
         private DataGridViewTextBoxColumn ColPrice;
+        private DataGridViewTextBoxColumn ColDealPrice;
         private DataGridViewTextBoxColumn ColTime;
         private DataGridViewTextBoxColumn ColStatus;
         private DataGridViewTextBoxColumn ColBuyer;
