@@ -148,7 +148,7 @@
             // 
             lbl_Tip.AutoSize = true;
             lbl_Tip.ForeColor = SystemColors.GrayText;
-            lbl_Tip.Location = new Point(438, 598);
+            lbl_Tip.Location = new Point(433, 598);
             lbl_Tip.Margin = new Padding(5, 0, 5, 0);
             lbl_Tip.Name = "lbl_Tip";
             lbl_Tip.Size = new Size(63, 24);
@@ -160,7 +160,6 @@
             AutoScaleDimensions = new SizeF(11F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            BackgroundImage = DesignTimeSafe.LoadImage("Sys_images", "Backgrounds", "background_form.png");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(960, 720);
             Controls.Add(lbl_Tip);
