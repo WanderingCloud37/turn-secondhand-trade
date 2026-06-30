@@ -1,4 +1,8 @@
-﻿USE [SecondHandDB]
+﻿IF DB_ID(N'SecondHandDB') IS NULL
+    CREATE DATABASE [SecondHandDB];
+GO
+
+USE [SecondHandDB]
 GO
 /****** 对象:  User [TeamUser]    脚本日期: 2026/6/26 10:20:34 ******/
 CREATE USER [TeamUser] FOR LOGIN [TeamUser] WITH DEFAULT_SCHEMA=[dbo]

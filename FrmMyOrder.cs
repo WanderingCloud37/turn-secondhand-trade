@@ -38,7 +38,7 @@ namespace 转一转校园二手物品交易系统
                 }
                 SQLHelper.Exec("UPDATE orders SET order_status='待收货' WHERE order_id=@id",
                     new[] { new SqlParameter("@id", orderId) });
-                MessageBox.Show("已确认收款");
+                MessageBox.Show("已确认对方付款！");
             }
             else
             {
