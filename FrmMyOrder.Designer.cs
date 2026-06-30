@@ -22,6 +22,7 @@ namespace 转一转校园二手物品交易系统
             ColGoods = new DataGridViewTextBoxColumn();
             ColPrice = new DataGridViewTextBoxColumn();
             ColDealPrice = new DataGridViewTextBoxColumn();
+            ColAddress = new DataGridViewTextBoxColumn();
             ColTime = new DataGridViewTextBoxColumn();
             ColStatus = new DataGridViewTextBoxColumn();
             ColBuyer = new DataGridViewTextBoxColumn();
@@ -39,7 +40,8 @@ namespace 转一转校园二手物品交易系统
             dgv_Order.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Order.BackgroundColor = SystemColors.Info;
             dgv_Order.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Order.Columns.AddRange(new DataGridViewColumn[] { ColId, ColGoods, ColPrice, ColDealPrice, ColTime, ColStatus, ColBuyer });
+            dgv_Order.AutoGenerateColumns = false;
+            dgv_Order.Columns.AddRange(new DataGridViewColumn[] { ColId, ColGoods, ColPrice, ColDealPrice, ColTime, ColStatus, ColBuyer, ColAddress });
             dgv_Order.GridColor = SystemColors.Highlight;
             dgv_Order.Location = new Point(29, 121);
             dgv_Order.Margin = new Padding(5, 4, 5, 4);
@@ -81,6 +83,14 @@ namespace 转一转校园二手物品交易系统
             ColDealPrice.MinimumWidth = 8;
             ColDealPrice.Name = "ColDealPrice";
             ColDealPrice.ReadOnly = true;
+            // 
+            // ColAddress
+            // 
+            ColAddress.DataPropertyName = "shipping_address";
+            ColAddress.HeaderText = "地址";
+            ColAddress.MinimumWidth = 8;
+            ColAddress.Name = "ColAddress";
+            ColAddress.ReadOnly = true;
             // 
             // ColTime
             // 
@@ -216,6 +226,7 @@ namespace 转一转校园二手物品交易系统
         private DataGridViewTextBoxColumn ColGoods;
         private DataGridViewTextBoxColumn ColPrice;
         private DataGridViewTextBoxColumn ColDealPrice;
+        private DataGridViewTextBoxColumn ColAddress;
         private DataGridViewTextBoxColumn ColTime;
         private DataGridViewTextBoxColumn ColStatus;
         private DataGridViewTextBoxColumn ColBuyer;
