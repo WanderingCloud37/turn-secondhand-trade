@@ -80,5 +80,15 @@ WHERE u.username=@u AND u.status='active'";
         {
 
         }
+
+        private void lbl_Title_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_UserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
